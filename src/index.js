@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 const app = express();
+const { PORT = 4000} = process.env;
 
 app.use(bodyParser.json()).use(cors());
 
@@ -65,3 +66,4 @@ app.get("/api/v1/mammals/:id", (req, res) => {
   return res.json(mammal);
 });
 
+app.listen(PORT, () => console.log(`listening on port ${PORT}`));
